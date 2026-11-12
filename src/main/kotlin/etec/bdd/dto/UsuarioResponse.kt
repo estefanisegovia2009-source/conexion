@@ -7,7 +7,8 @@ data class UsuarioResponse(
     val nombre: String,
     val email: String,
     val telefono: String?,
-    val direccion: String?
+    val direccion: String?,
+    val rol: String
 ) {
     companion object {
         fun fromEntity(usuario: Usuario) = UsuarioResponse(
@@ -15,7 +16,8 @@ data class UsuarioResponse(
             nombre = usuario.nombre,
             email = usuario.email,
             telefono = usuario.telefono,
-            direccion = usuario.direccion
+            direccion = usuario.direccion,
+            rol = usuario.rol
         )
     }
 }
