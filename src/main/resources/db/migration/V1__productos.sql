@@ -1,8 +1,6 @@
-DROP TABLE IF EXISTS productos;
-
 CREATE TABLE productos (
-                           id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                           nombre VARCHAR(120) NOT NULL,
-                           precio DECIMAL(10,2) NOT NULL,
-                           stock INT NOT NULL
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(120) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

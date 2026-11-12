@@ -6,16 +6,21 @@ import java.math.BigDecimal
 data class ProductoResponse(
     val id: Int,
     val nombre: String,
+    val descripcion: String?,
     val precio: BigDecimal,
     val stock: Int,
+    val categoriaId: Int?,
+    val imagen: String?
 ) {
     companion object {
-        fun fromEntity(p: Producto): ProductoResponse =
-            ProductoResponse(
-                id = p.id,
-                nombre = p.nombre,
-                precio = p.precio,
-                stock = p.stock,
-            )
+        fun fromEntity(producto: Producto) = ProductoResponse(
+            id = producto.id,
+            nombre = producto.nombre,
+            descripcion = producto.descripcion,
+            precio = producto.precio,
+            stock = producto.stock,
+            categoriaId = producto.categoriaId,
+            imagen = producto.imagen
+        )
     }
 }

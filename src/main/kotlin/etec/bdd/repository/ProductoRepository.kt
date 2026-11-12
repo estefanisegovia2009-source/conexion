@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface ProductoRepository : JpaRepository<Producto, Int> { // <--- Cambiado de Long a Int
+interface ProductoRepository : JpaRepository<Producto, Int> {
+    fun findByCategoriaId(categoriaId: Int): List<Producto>
 }
