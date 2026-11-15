@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/productos")
-@CrossOrigin(origins = ["http://localhost:3000"])
 class ProductoController(
     private val productoRepository: ProductoRepository
 ) {

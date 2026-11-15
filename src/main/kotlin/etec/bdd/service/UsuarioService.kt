@@ -40,8 +40,7 @@ class UsuarioService(
             direccion = request.direccion?.trim()?.ifBlank { null }
         )
 
-        val usuarioGuardado = usuarioRepository.save(usuario)
-        return UsuarioResponse.fromEntity(usuarioGuardado)
+        return UsuarioResponse.fromEntity(usuarioRepository.save(usuario))
     }
 
     fun iniciarSesion(request: LoginRequest): UsuarioResponse {
@@ -57,6 +56,13 @@ class UsuarioService(
                 "Correo o contraseña incorrectos"
             )
         }
+
+        return UsuarioResponse.fromEntity(usuario)
+    }
+
+    fun buscarPorId(id: Int): UsuarioResponse? {
+        val usuario = usuarioRepository.findById(id).orElse(null)
+            ?: return null
 
         return UsuarioResponse.fromEntity(usuario)
     }
